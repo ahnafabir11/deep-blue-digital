@@ -1,0 +1,15 @@
+.side-nav {
+  margin-right: 3rem;
+  height: 80vh;
+  border-right: 1px solid lightgray;
+}
+
+@media (max-width: 992px) {
+  .side-nav {
+    border-right: none;
+    border-bottom: 1px solid lightgray;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    height: unset;
+  }
+}
