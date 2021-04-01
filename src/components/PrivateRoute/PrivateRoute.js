@@ -5,23 +5,21 @@ import { UserContext } from '../../App';
 const PrivateRoute = ({ children, ...rest })=> {
   const [loggedInUser] = useContext(UserContext);
   return (
-    <div>
-      <Route
-        {...rest}
-        render={({ location }) =>
-          loggedInUser.email ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
-    </div>
+    <Route
+      {...rest}
+      render={({ location }) =>
+        loggedInUser.email ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
   )
 }
 

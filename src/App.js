@@ -6,13 +6,14 @@ import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout';
 import Admin from './components/Admin/Admin';
 import Login from './components/Login/Login';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Orders from './components/Orders/Orders';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setloggedInUser] = useState([]);
+  
   return (
     <div className="App">
       <UserContext.Provider value={[loggedInUser, setloggedInUser]}>

@@ -1,14 +1,13 @@
 import './Login.css';
 import React, { useContext, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import { UserContext } from './../../App';
-import firebase from "firebase/app";
 import "firebase/auth";
+import firebase from "firebase/app";
 import firebaseConfig from '../../firebase.config';
-import { useHistory, useLocation } from 'react-router-dom';
-
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -26,8 +25,7 @@ const Login = ()=> {
 
   const googleSignIn = ()=> {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth()
-      .signInWithPopup(googleProvider)
+    firebase.auth().signInWithPopup(googleProvider)
       .then((result) => {
         const user = result.user;
         const newUser = {

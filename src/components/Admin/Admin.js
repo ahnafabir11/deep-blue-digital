@@ -1,15 +1,15 @@
 import './Admin.css';
 import React from 'react';
-import logo from '../../images/logo.png';
 import { Link, Route } from 'react-router-dom';
-import AddProductCard from '../AddProductCard/AddProductCard';
+import { FaHome } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import logo from '../../images/logo.png';
 import Dashboard from '../Dashboard/Dashboard';
-
+import AddProductCard from '../AddProductCard/AddProductCard';
 
 
 function Admin() {
-  
-
   return (
     <div className="Admin">
       <div className="container-fluid">
@@ -19,9 +19,9 @@ function Admin() {
           <div className="col-lg-3">
             <div className="side-nav">
               <div>
-                <Link to="/" className="admin-link-text">Home Page</Link>
-                <Link to="/admin/dashboard" className="admin-link-text">Dashboard</Link>
-                <Link to="/admin/addProduct" className="admin-link-text">Add Product</Link>
+                <Link to="/" className="admin-link-text"><FaHome/> Home Page</Link>
+                <Link to="/admin/dashboard" className="admin-link-text"><MdDashboard/> Dashboard</Link>
+                <Link to="/admin/addProduct" className="admin-link-text"><AiOutlineAppstoreAdd/> Add Product</Link>
               </div>
             </div>
           </div>

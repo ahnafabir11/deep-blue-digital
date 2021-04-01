@@ -1,15 +1,17 @@
 import './Header.css';
 import React, { useContext } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
-import logo from '../../images/logo.png';
+import { Nav, Navbar } from 'react-bootstrap';
 import Button from '@material-ui/core/Button'
-import { UserContext } from '../../App';
 import { Avatar } from '@material-ui/core';
+import { UserContext } from '../../App';
+import logo from '../../images/logo.png';
+
 
 const Header = ()=> {
   const history = useHistory();
   const [loggedInUser, setloggedInUser] = useContext(UserContext);
+
   return (
     <div className="Header">
       <Navbar expand="md">

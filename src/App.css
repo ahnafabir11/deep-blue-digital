@@ -1,0 +1,5 @@
+.App {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.89), rgb(255, 255, 255), rgba(255, 255, 255, 0.938)), url('./images/background.jpg');
+  background-size: 100%;
+  position: top center;
+}

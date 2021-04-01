@@ -1,12 +1,11 @@
 import './AddProductCard.css';
-import React from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useState } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import { Button, Card, Form } from 'react-bootstrap';
 
-function AddProductCard() {
+const AddProductCard = () => {
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
   const [imgUrl, setImgUrl] = useState('');
@@ -17,8 +16,9 @@ function AddProductCard() {
     imageData.append('image', event.target.files[0]);
     axios.post('https://api.imgbb.com/1/upload', imageData)
       .then(res => setImgUrl(res.data.data.display_url))
-      .catch(error => console.log(error));
+      .catch(error => { });
   }
+
   const onSubmit = (data) => {
     const productData = {
       name: data.productName,
@@ -26,18 +26,17 @@ function AddProductCard() {
       imgURL: imgUrl
     }
 
-    fetch(`http://localhost:5000/addProduct`, {
+    fetch(`https://banana-shortcake-52587.herokuapp.com/addProduct`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(productData)
     })
       .then(res => history.push('/'))
-  };
+  }
+
   return (
     <div className="AddProductCard">
-      <Card style={{ width: '100%' }}>
+      <Card>
         <Card.Body>
           <h4 className="pb-3">Add New Product</h4>
           <Form onSubmit={handleSubmit(onSubmit)}>
